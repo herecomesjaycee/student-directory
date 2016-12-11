@@ -20,9 +20,15 @@ def print_header
 end 
 
 def print(students)
-  students.each do |student|  
+ students.each do |student|  
     puts "#{students}  #{student[:name]} (#{student[:cohort]} cohort)"
-  end
+ end
+end
+
+def print_while(students)
+for student in students
+	puts "#{student}"
+end
 end
 
 def print_index_name(students)
@@ -77,4 +83,5 @@ end
 # print(students)
 # print_footer(students)
 # name_filter(students)
-number_filter(students)
+# number_filter(students)
+print_while(students)
