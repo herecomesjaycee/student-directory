@@ -25,6 +25,10 @@ def print(students)
   end
 end
 
+def print_index_name(students)
+	students.each_with_index {|(key,value),index|
+		puts "#{index+1}. #{key[:name]}"}
+end
 # finally, we print the total
 def print_footer(names)
 puts "Overall, we have #{names.count} great students"
@@ -47,10 +51,13 @@ def input_students
 end
 
 students
-end 	
+end
+
 
 # nothing happens until we call the methods
-students = input_students
+# students = input_students
 print_header
 print(students)
 print_footer(students)
+print_index_name(students)
+
