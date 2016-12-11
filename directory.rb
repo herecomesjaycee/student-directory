@@ -9,8 +9,8 @@ students = [
   {name: "Terminator", cohort: :november, hobby:"gardening"},
   {name: "Freddy Krueger", cohort: :november, hobby:"fishing"},
   {name: "The Joker", cohort: :november, hobby:"fishing"},
-  {name: "Joffrey Baratheon", cohort: :november, hobby:"taxidermy"},  
-  {name: "Norman Bates", cohort: :november, hobby:"taxidermy"}
+  {name: "Joffrey Baratheon", cohort: :december, hobby:"taxidermy"},  
+  {name: "Norman Bates", cohort: :december, hobby:"taxidermy"}
 ]
 
 # and then print them
@@ -64,7 +64,7 @@ def input_students
 	students =[]
 	# get the first name
 	puts "Name?"
-	name = gets.chomp.to_sym
+	name = gets.chomp
 	# get the cohort
 	puts "Cohort?"
 	cohort = gets.chomp.to_sym || "TBA"
