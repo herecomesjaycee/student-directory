@@ -1,16 +1,16 @@
 # let's put all students into an array
 students = [
-  {name: "Dr. Hannibal Lecter", cohort: :november},
-  {name: "Darth Vader", cohort: :november},
-  {name: "Nurse Ratched", cohort: :november},
-  {name: "Michael Corleone", cohort: :november},
-  {name: "Alex DeLarge", cohort: :november},
-  {name: "The Wicked Witch of the West", cohort: :november},
-  {name: "Terminator", cohort: :november},
-  {name: "Freddy Krueger", cohort: :november},
-  {name: "The Joker", cohort: :november},
-  {name: "Joffrey Baratheon", cohort: :november},  
-  {name: "Norman Bates", cohort: :november}
+  {name: "Dr. Hannibal Lecter", cohort: :november, hobby:"taxidermy"},
+  {name: "Darth Vader", cohort: :november, hobby:"taxidermy"},
+  {name: "Nurse Ratched", cohort: :november, hobby:"fishing"},
+  {name: "Michael Corleone", cohort: :november, hobby:"fishing"},
+  {name: "Alex DeLarge", cohort: :november, hobby:"gardening"},
+  {name: "The Wicked Witch of the West", cohort: :november, hobby:"gardening"},
+  {name: "Terminator", cohort: :november, hobby:"gardening"},
+  {name: "Freddy Krueger", cohort: :november, hobby:"fishing"},
+  {name: "The Joker", cohort: :november, hobby:"fishing"},
+  {name: "Joffrey Baratheon", cohort: :november, hobby:"taxidermy"},  
+  {name: "Norman Bates", cohort: :november, hobby:"taxidermy"}
 ]
 
 # and then print them
