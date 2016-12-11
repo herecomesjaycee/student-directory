@@ -83,10 +83,11 @@ def input_students
 	# add the student to the array
 	insert_students(name,cohort)
 	if @students.count == 1
-	puts "Now we have #{@students.count} student"
+	puts "Now we have #{@students.count} student."
 	else 
 	puts "Now we have #{@students.count} students"
 end
+puts "Don't forget to save"
 
 	#get another name from the user
 	name = STDIN.gets.chomp
@@ -130,7 +131,9 @@ def process(selection)
     when "4"
     	load_students
     when "9"
+    	puts "Program is closing..."
       exit
+
     else
       puts "I don't know what you mean, try again"
   end
@@ -138,7 +141,7 @@ end
 
 def save_students
 	#open the file for writing
-file = File.open("students.csv","w")
+	file = File.open("students.csv","w")
 # iterate over the array of students
 @students.each do |student|
 	student_data = [student[:name], student[:cohort]]
@@ -146,6 +149,7 @@ file = File.open("students.csv","w")
 	file.puts csv_line
 end
 file.close
+puts "File saved and close"
 end
 
 def load_students(filename = "students.csv")
@@ -155,12 +159,13 @@ def load_students(filename = "students.csv")
   insert_students(name,cohort)
   end
   file.close
+  puts "File loaded from students.csv"
 end
 
 def try_load_students
-  filename = ARGV.first # first argument from the command line
+  filename = ARGV.first || "students.csv"# first argument from the command line
    # get out of the method if it isn't given
-  	if File.exists?(filename) # if it exists
+  if File.exists?(filename) # if it exists
     load_students(filename)
      puts "Loaded #{@students.count} from #{filename}"
   else # if it doesn't exist
