@@ -38,6 +38,13 @@ end
 end
 end
 
+def number_filter(students)
+	students.each do |student|
+		if student[:name].length< 12
+		puts "#{student[:name]}"
+end
+end
+end
 
 # finally, we print the total
 def print_footer(names)
@@ -67,6 +74,7 @@ end
 # nothing happens until we call the methods
 # students = input_students
 # print_header
-print(students)
+# print(students)
 # print_footer(students)
-name_filter(students)
+# name_filter(students)
+number_filter(students)
