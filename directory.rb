@@ -93,7 +93,6 @@ end
 students
 end
 
-
 # nothing happens until we call the methods
 students = input_students
 # print_header
