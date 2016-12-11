@@ -54,7 +54,7 @@ end
 
 # finally, we print the total
 def print_footer(names)
-puts "Overall, we have #{names.count} great students"
+puts "Overall, we have #{names.count} great students".center(50)
 end 
 
 def input_students
@@ -81,7 +81,7 @@ end
 # students = input_students
 # print_header
 # print(students)
-# print_footer(students)
+print_footer(students)
 # name_filter(students)
 # number_filter(students)
-print_while(students)
+# print_while(students)
