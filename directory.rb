@@ -72,10 +72,10 @@ def input_students
 	students =[]
 	# get the first name
 	puts "Name?"
-	name = gets.chomp
+	name = gets.strip
 	# get the cohort
 	puts "Cohort?"
-	cohort = gets.chomp.to_sym || "TBA"
+	cohort = gets.strip.to_sym || "TBA"
 	#while the name is not empty, repeat this code
 	while !name.empty? do
 	# add the student to the array
@@ -86,8 +86,9 @@ def input_students
 	puts "Now we have #{students.count} students"
 end
 	#get another name from the user
-	name = gets.chomp
-	cohort = gets.chomp
+	name = gets.strip
+	cohort = gets.strip
+
 end
 
 students
