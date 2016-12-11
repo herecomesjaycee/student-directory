@@ -61,8 +61,8 @@ end
 end
 
 # finally, we print the total
-def print_footer(names)
-puts "Overall, we have #{names.count} great students".center(50)
+def print_footer(students)
+puts "Overall, we have #{students.count} great students".center(50)
 end 
 
 def input_students
@@ -85,17 +85,46 @@ def input_students
 	else 
 	puts "Now we have #{students.count} students"
 end
+
 	#get another name from the user
 	name = gets.strip
 	cohort = gets.strip
+
 
 end
 
 students
 end
 
+def interactive_menu
+students = []  
+	loop do
+  # 1. print the menu and ask the user what to do
+puts "1. Input the students"
+puts "2. Show the students"
+puts "9. Exit" # 9 because we'll be adding more items
+  # 2. read the input and save it into a variable
+selection = gets.chomp
+  # 3. do what the user has asked
+case selection
+when "1"
+student = input_students
+	#input the students
+when "2"
+	#show the students
+print_header
+print(students)
+print_footer(students)
+when "9"
+	exit #this will cause the program to stop
+else
+	puts "I don't know what you meant, try again"
+end
+end
+end
+
 # nothing happens until we call the methods
-students = input_students
+# students = input_students
 # print_header
 # print(students)
 # print_footer(students)
@@ -103,3 +132,4 @@ students = input_students
 # number_filter(students)
 # print_while(students)
 # print_by_cohort(students)
+interactive_menu
