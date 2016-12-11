@@ -1,4 +1,6 @@
 # let's put all students into an array
+@students = []
+
 students = [
   {name: "Dr. Hannibal Lecter", cohort: :november, hobby:"taxidermy"},
   {name: "Darth Vader", cohort: :november, hobby:"taxidermy"},
@@ -19,9 +21,9 @@ def print_header
 	puts "-------------"
 end 
 
-def print(students)
- students.each do |student|  
-    puts "#{students}  #{student[:name]} (#{student[:cohort]} cohort)"
+def print_students_list
+ @students.each do |student|  
+    puts "#{student[:name]} (#{student[:cohort]} cohort)"
  end
 end
 
@@ -61,15 +63,15 @@ end
 end
 
 # finally, we print the total
-def print_footer(students)
-puts "Overall, we have #{students.count} great students".center(50)
+def print_footer
+puts "Overall, we have #{@students.count} great students".center(50)
 end 
 
 def input_students
 	puts "Please enter the names and cohorts of the students"
 	puts "To finish, just hit return twice"
 	# create an empty array
-	students =[]
+	#students =[]
 	# get the first name
 	puts "Name?"
 	name = gets.strip
@@ -79,11 +81,11 @@ def input_students
 	#while the name is not empty, repeat this code
 	while !name.empty? do
 	# add the student to the array
-	students << {name: name.to_sym, cohort: cohort}
-	if students.count == 1
-	puts "Now we have #{students.count} student"
+	@students << {name: name.to_sym, cohort: cohort}
+	if @students.count == 1
+	puts "Now we have #{@students.count} student"
 	else 
-	puts "Now we have #{students.count} students"
+	puts "Now we have #{@students.count} students"
 end
 
 	#get another name from the user
@@ -93,34 +95,39 @@ end
 
 end
 
-students
+@students
 end
 
 def interactive_menu
-students = []  
-	loop do
-  # 1. print the menu and ask the user what to do
-puts "1. Input the students"
-puts "2. Show the students"
-puts "9. Exit" # 9 because we'll be adding more items
-  # 2. read the input and save it into a variable
-selection = gets.chomp
-  # 3. do what the user has asked
-case selection
-when "1"
-student = input_students
-	#input the students
-when "2"
-	#show the students
-print_header
-print(students)
-print_footer(students)
-when "9"
-	exit #this will cause the program to stop
-else
-	puts "I don't know what you meant, try again"
+  loop do
+    print_menu
+    process(gets.chomp)
+  end
 end
+
+def print_menu
+	puts "1. Input the students"
+	puts "2. Show the students"
+	puts "9. Exit"
 end
+
+def show_students
+	print_header
+	print_students_list
+	print_footer
+end
+
+def process(selection)
+  case selection
+    when "1"
+      input_students
+    when "2"
+      show_students
+    when "9"
+      exit
+    else
+      puts "I don't know what you mean, try again"
+  end
 end
 
 # nothing happens until we call the methods
