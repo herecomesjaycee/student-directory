@@ -52,6 +52,14 @@ end
 end
 end
 
+def print_by_cohort(students)
+	students.each do |student| 
+	if student[:cohort] == :november
+	puts "#{student[:name]}"
+end
+end
+end
+
 # finally, we print the total
 def print_footer(names)
 puts "Overall, we have #{names.count} great students".center(50)
@@ -83,10 +91,11 @@ end
 
 
 # nothing happens until we call the methods
-students = input_students
+#students = input_students
 # print_header
 # print(students)
 # print_footer(students)
 # name_filter(students)
 # number_filter(students)
 # print_while(students)
+print_by_cohort(students)
