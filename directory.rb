@@ -58,19 +58,24 @@ puts "Overall, we have #{names.count} great students".center(50)
 end 
 
 def input_students
-	puts "Please enter the names of the students"
+	puts "Please enter the names and cohorts of the students"
 	puts "To finish, just hit return twice"
 	# create an empty array
 	students =[]
 	# get the first name
-	name = gets.chomp
+	puts "Name?"
+	name = gets.chomp.to_sym
+	# get the cohort
+	puts "Cohort?"
+	cohort = gets.chomp.to_sym || "TBA"
 	#while the name is not empty, repeat this code
 	while !name.empty? do
 	# add the student to the array
-	students << {name: name, cohort: :november}
+	students << {name: name.to_sym, cohort: cohort}
 	puts "Now we have #{students.count} students"
 	#get another name from the user
 	name = gets.chomp
+	cohort = gets.chomp
 end
 
 students
@@ -78,10 +83,10 @@ end
 
 
 # nothing happens until we call the methods
-# students = input_students
+students = input_students
 # print_header
 # print(students)
-print_footer(students)
+# print_footer(students)
 # name_filter(students)
 # number_filter(students)
 # print_while(students)
