@@ -74,14 +74,14 @@ def input_students
 	#students =[]
 	# get the first name
 	puts "Name?"
-	name = gets.strip
+	name = STDIN.gets.chomp
 	# get the cohort
 	puts "Cohort?"
-	cohort = STDIN.gets.strip.to_sym || "TBA"
+	cohort = STDIN.gets.chomp.to_sym || "TBA"
 	#while the name is not empty, repeat this code
 	while !name.empty? do
 	# add the student to the array
-	@students << {name: name.to_sym, cohort: cohort}
+	insert_students(name,cohort)
 	if @students.count == 1
 	puts "Now we have #{@students.count} student"
 	else 
@@ -89,8 +89,8 @@ def input_students
 end
 
 	#get another name from the user
-	name = gets.strip
-	cohort = gets.strip
+	name = STDIN.gets.chomp
+	cohort = STDIN.gets.chomp
 
 
 end
@@ -152,23 +152,26 @@ def load_students(filename = "students.csv")
   file = File.open(filename, "r")
   file.readlines.each do |line|
   name, cohort = line.chomp.split(',')
-    @students << {name: name, cohort: cohort.to_sym}
+  insert_students(name,cohort)
   end
   file.close
 end
 
 def try_load_students
   filename = ARGV.first # first argument from the command line
-  return if filename.nil? # get out of the method if it isn't given
+   # get out of the method if it isn't given
   	if File.exists?(filename) # if it exists
     load_students(filename)
      puts "Loaded #{@students.count} from #{filename}"
   else # if it doesn't exist
-    puts "Sorry, #{filename} doesn't exist."
-    exit # quit the program
+  	load_students("students.csv")
+    puts "Loaded #{@students.count} from default, students.csv because file requested doesn't exist"
   end
 end
 
+def insert_students(name,cohort)
+@students << {name: name.to_sym, cohort: cohort}
+end
 # nothing happens until we call the methods
 # students = input_students
 # print_header
