@@ -28,7 +28,17 @@ end
 def print_index_name(students)
 	students.each_with_index {|(key,value),index|
 		puts "#{index+1}. #{key[:name]}"}
+	end
+
+def name_filter(students)
+	students.each do |student|
+		if student[:name].include?'a'
+		puts "#{student[:name]}" 
 end
+end
+end
+
+
 # finally, we print the total
 def print_footer(names)
 puts "Overall, we have #{names.count} great students"
@@ -56,8 +66,7 @@ end
 
 # nothing happens until we call the methods
 # students = input_students
-print_header
+# print_header
 print(students)
-print_footer(students)
-print_index_name(students)
-
+# print_footer(students)
+name_filter(students)
