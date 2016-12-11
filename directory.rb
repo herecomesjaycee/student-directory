@@ -80,7 +80,11 @@ def input_students
 	while !name.empty? do
 	# add the student to the array
 	students << {name: name.to_sym, cohort: cohort}
+	if students.count == 1
+	puts "Now we have #{students.count} student"
+	else 
 	puts "Now we have #{students.count} students"
+end
 	#get another name from the user
 	name = gets.chomp
 	cohort = gets.chomp
@@ -91,11 +95,11 @@ end
 
 
 # nothing happens until we call the methods
-#students = input_students
+students = input_students
 # print_header
 # print(students)
 # print_footer(students)
 # name_filter(students)
 # number_filter(students)
 # print_while(students)
-print_by_cohort(students)
+# print_by_cohort(students)
